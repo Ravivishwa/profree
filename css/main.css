@@ -289,14 +289,15 @@ body{
 }
 
 header{
-  background: #3b5998;
+  /*background: #3b5998;*/
   padding-top: 20px;
+  background: white;
 }
 header .form-group{
   margin-bottom: 0px;
 }
 header .btn-header-login{
-  margin-bottom: 15px;  
+  margin-bottom: 15px;
 }
 .login-main{
   margin-top: 22px;
@@ -310,7 +311,7 @@ header .btn-header-login{
 }
 .login-main span{
   font-size: 12px;
-} 
+}
 
 
 
