@@ -281,17 +281,18 @@ body{
 
 }
 .login-bottom-text{
-  margin-top: 10px;
-  margin-bottom: 0px;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
   font-size: 12px;
   color: white;
   line-height: 19px;
 }
 
 header{
-  /*background: #3b5998;*/
-  padding-top: 20px;
-  background: white;
+  background: #3b5998;
+  /*padding-top: 20px;*/
+  min-height: 40px;
+  /* background: white; */
 }
 header .form-group{
   margin-bottom: 0px;
@@ -300,7 +301,7 @@ header .btn-header-login{
   margin-bottom: 15px;
 }
 .login-main{
-  margin-top: 22px;
+     margin-top: 22px;
     font-family: serif;
     font-size: 27px;
     color: darkgreen;
@@ -338,4 +339,61 @@ footer hr{
   margin-top: 25px;
 }
 
+.profileimage{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;  
+}
+
+@import url(https://fonts.googleapis.com/css?family=Oswald:400);
+
+.navigation {
+  width: 100%;
+  background-color: black;
+}
+
+img {
+  width: 25px;
+  border-radius: 50px;
+  float: left;
+}
+
+.logout {
+  font-size: .8em;
+  font-family: 'Oswald', sans-serif;
+  position: relative;
+  right: -18px;
+  bottom: -4px;
+  overflow: hidden;
+  letter-spacing: 3px;
+  opacity: 0;
+  transition: opacity .45s;
+  -webkit-transition: opacity .35s;
+  
+}
+
+.button {
+  text-decoration: none;
+  float: right;
+  padding: 12px;
+  margin: 15px;
+  color: white;
+  width: 25px;
+  background-color: black;
+  transition: width .35s;
+  -webkit-transition: width .35s;
+  overflow: hidden
+}
+
+a:hover {
+  width: 100px;
+}
+
+a:hover .logout{
+  opacity: .9;
+}
+
+a {
+  text-decoration: none;
+}
 

@@ -1,16 +1,19 @@
 <?php
-session_start();
+
+require_once('functions.php');
+global $db;
 if(isset($_POST['save']))
 {
     $rno=$_SESSION['otp'];
-    $userid=$_SESSION['id'];
+    $userid=$_SESSION['user']['id'];
     $urno=$_POST['otpvalue'];
     if($rno == $urno)
     {
       echo "done";
       $query = "UPDATE `users` SET `approved` = '1' WHERE `users`.`id` = $userid";
+      
       mysqli_query($db, $query);
-      header('location: index.html');
+      header('location: index.php');
     }else{
         echo "incorrect otp ";
     }
@@ -35,7 +38,7 @@ if(isset($_POST['resend']))
     <title>OTP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/main.css">
-<!--    <link rel="stylesheet" href="http://studentstutorial.com/div/d.css">-->
+   <link rel="stylesheet" href="http://studentstutorial.com/div/d.css">
     <style>
         a{
             text-decoration:none;
@@ -49,13 +52,13 @@ if(isset($_POST['resend']))
           </div>
         </header>
         <br>
-        <div class="w3-row">
-            <div class="w3-half w3-card-2 w3-round">
+        <div class="w3-row ">
+            <div class=" w3-card-2 w3-round w3-center" style="width: 50%;margin: auto;">
                 <div class="w3-container w3-center" style="background-color: #3b5998;">
-                    <h2>OTP</h2>
+                    <h2 style="color: white;">OTP</h2>
                 </div>
                 <br>
-                <form class="w3-container" method="post" action="">
+                <form class="w3-container " method="post" action="">
                     <br>
                     <br>
                     <p><input class="w3-input w3-border w3-round" type="password" placeholder="OTP" name="otpvalue"></p>

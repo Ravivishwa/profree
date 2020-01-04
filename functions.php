@@ -29,59 +29,19 @@ if (isset($_GET['logout'])) {
 // REGISTER USER
 function register(){
   global $db, $errors;
-
-  $rndno=rand(100000, 999999);//OTP generate
-  $message = urlencode("otp number.".$rndno);
-  $to=$_POST['email'];
-  $subject = "OTP";
-  $txt = "OTP: ".$rndno."";
-
-  $message = '<html><head>
-                <title>Email Verification newwwwwww</title>
-                </head>
-                <body>';
-  $message .= "OTP: ".$rndno."";
-  $message .= "</body></html>";
-
-  $mail = new PHPMailer(true);
-  $mail->IsSMTP();
-  $mail->SMTPDebug = 0;
-  $mail->SMTPAuth = true;
-  $mail->SMTPSecure = 'tls';
-  $mail->Host = "smtp.gmail.com";
-  $mail->Port = 587;
-  $mail->Username = 'ravi.vishwakarma@mediatech.co.in';
-  $mail->Password = 'microg25';
-  $mail->SetFrom('ravi.vishwakarma@mediatech.co.in', 'Ravi');
-  $mail->AddAddress($to);
-  $mail->Subject = trim("Email Verifcation - www.thesoftwareguy.in");
-  $mail->MsgHTML($message);
-  try {
-    $mail->send();
-    $msg = "An email has been sent for verfication.";
-    $msgType = "success";
-  } catch (Exception $ex) {
-    $msg = $ex->getMessage();
-    $msgType = "warning";
-  }
-
-  // receive all input values from the form
+  $email=$_POST['email'];
+  $sql = "select * from users where email = '$email'";
+  $result = mysqli_query($db, $sql);
+  if(mysqli_num_rows($result) >0){
+    echo "User already exits";die;
+    return ;
+  }else{
   $fname    =  e($_POST['f_name']);
   $lname    =  e($_POST['l_name']);
   $email       =  e($_POST['email']);
   $password_1  =  e($_POST['password_1']);
   $password_2  =  e($_POST['password_2']);
 
-  // form validation: ensure that the form is correctly filled
-  if (empty($fname)) {
-    array_push($errors, "f_name is required");
-  }
-  if (empty($lname)) {
-    array_push($errors, "l_name is required");
-  }
-  if (empty($email)) {
-    array_push($errors, "Email is required");
-  }
   if (empty($password_1)) {
     array_push($errors, "Password is required");
   }
@@ -92,18 +52,15 @@ function register(){
   // register user if there are no errors in the form
   if (count($errors) == 0) {
     $password = md5($password_1);//encrypt the password before saving in the database
-
-//    if (isset($_POST['user_type'])) {
       $query = "INSERT INTO users (fname,lname,email,password,approved)
-						  VALUES('$fname', '$lname', '$email', '$password',0)";
+              VALUES('$fname', '$lname', '$email', '$password',0)";
       mysqli_query($db, $query);
       $id = mysqli_insert_id($db);
-      $_SESSION['user'] = getUserById($id);
-      $_SESSION['success']  = "New user successfully created!!";
-      $_SESSION['otp']=$rndno;
-      $_SESSION['id']=$id;
-      header('location: otp.php');
+      // $_SESSION['success']  = "New user successfully created!!";
+    sendOtp($email,$id);
+  
 
+  }
   }
 
 }
@@ -137,7 +94,18 @@ function login(){
   // attempt login if no errors on form
   if (count($errors) == 0) {
     $password = md5($password);
-
+  $email=$_POST['username'];
+  $sql = "select id from users where email = '$email' and approved = 0";
+  // echo $sql;die;
+  $result = mysqli_query($db, $sql);
+  $id = mysqli_fetch_assoc($result)['id'];
+  if($id){
+    sendOtp($email,$id);
+  }
+  // if(mysqli_num_rows($result) >0){
+  //   echo "User already exits";die;
+  //   return ;
+  // }
     $query = "SELECT * FROM users WHERE email='$username' AND password='$password' LIMIT 1";
     $results = mysqli_query($db, $query);
 
@@ -152,7 +120,7 @@ function login(){
       }else{
         $_SESSION['user'] = $logged_in_user;
         $_SESSION['success']  = "You are now logged in";
-        header('location: portfolio.html');
+        header('location: home.php');
       }
     }else {
       array_push($errors, "Wrong username/password combination");
@@ -194,5 +162,45 @@ function display_error() {
     }
     echo '</div>';
   }
+}
+
+function sendOtp($email,$id){
+  $rndno=rand(100000, 999999);//OTP generate
+  $_SESSION['otp']=$rndno;
+  $message = urlencode("otp number.".$rndno);
+  $_SESSION['user'] = getUserById($id);
+  $subject = "OTP";
+  $txt = "OTP: ".$rndno."";
+
+  $message = '<html><head>
+                <title>Email Verification newwwwwww</title>
+                </head>
+                <body>';
+  $message .= "OTP: ".$rndno."";
+  $message .= "</body></html>";
+
+  $mail = new PHPMailer(true);
+  $mail->IsSMTP();
+  $mail->SMTPDebug = 0;
+  $mail->SMTPAuth = true;
+  $mail->SMTPSecure = 'tls';
+  $mail->Host = "smtp.gmail.com";
+  $mail->Port = 587;
+  $mail->Username = 'ravi.vishwakarma@mediatech.co.in';
+  $mail->Password = 'microg25';
+  $mail->SetFrom('ravi.vishwakarma@mediatech.co.in', 'Ravi');
+  $mail->AddAddress($email);
+  $mail->Subject = trim("Email Verifcation - www.thesoftwareguy.in");
+  $mail->MsgHTML($message);
+  try {
+    $mail->send();
+    $msg = "An email has been sent for verfication.";
+    $msgType = "success";
+  } catch (Exception $ex) {
+    $msg = $ex->getMessage();
+    $msgType = "warning";
+  }
+      header('location: otp.php');
+
 }
 ?>

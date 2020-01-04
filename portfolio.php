@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>My Porto Resume HTML Template</title>
+    <title>My PortFolio</title>
 
     <!-- css include -->
     <link rel="stylesheet" type="text/css" href="assets/css/materialize.css">
@@ -25,7 +25,9 @@
 </head>
 
 <body class="clearfix">
-
+<?php
+  require_once('header.php');
+?>
     <div data-scroll='0' class="thetop"></div>
     <!-- for back to top -->
 
@@ -141,47 +143,47 @@
                                 <!-- /.sn-user -->
 
                                 <li class="sn-item">
-                                    <a href="http://webstrot.com/html/myporto/light_version/0" class="waves-effect">
+                                    <a href="#" class="waves-effect">
                                         <i class="fa fa-home" aria-hidden="true"></i> Home
                                     </a>
                                 </li>
                                 <li class="sn-item">
-                                    <a href="http://webstrot.com/html/myporto/light_version/1" class="waves-effect">
+                                    <a href="#" class="waves-effect">
                                         <i class="fa fa-user-o" aria-hidden="true"></i> About
                                     </a>
                                 </li>
                                 <li class="sn-item">
-                                    <a href="http://webstrot.com/html/myporto/light_version/2" class="waves-effect">
+                                    <a href="#" class="waves-effect">
                                         <i class="fa fa-lightbulb-o" aria-hidden="true"></i> Skills
                                     </a>
                                 </li>
                                 <li class="sn-item">
-                                    <a href="http://webstrot.com/html/myporto/light_version/3" class="waves-effect">
+                                    <a href="#" class="waves-effect">
                                         <i class="fa fa-graduation-cap" aria-hidden="true"></i> Education
                                     </a>
                                 </li>
                                 <li class="sn-item">
-                                    <a href="http://webstrot.com/html/myporto/light_version/4" class="waves-effect">
+                                    <a href="#" class="waves-effect">
                                         <i class="fa fa-briefcase" aria-hidden="true"></i> Portfolio
                                     </a>
                                 </li>
                                 <li class="sn-item">
-                                    <a href="http://webstrot.com/html/myporto/light_version/5" class="waves-effect">
+                                    <a href="#" class="waves-effect">
                                         <i class="fa fa-quote-left" aria-hidden="true"></i> Testimolial
                                     </a>
                                 </li>
                                 <li class="sn-item">
-                                    <a href="http://webstrot.com/html/myporto/light_version/6" class="waves-effect">
+                                    <a href="#" class="waves-effect">
                                         <i class="fa fa-pencil" aria-hidden="true"></i> Experience
                                     </a>
                                 </li>
                                 <li class="sn-item">
-                                    <a href="http://webstrot.com/html/myporto/light_version/7" class="waves-effect">
+                                    <a href="#" class="waves-effect">
                                         <i class="fa fa-newspaper-o" aria-hidden="true"></i> Blog
                                     </a>
                                 </li>
                                 <li class="sn-item">
-                                    <a href="http://webstrot.com/html/myporto/light_version/8" class="waves-effect">
+                                    <a href="#" class="waves-effect">
                                         <i class="fa fa-envelope-o" aria-hidden="true"></i> Contant
                                     </a>
                                 </li>
@@ -189,17 +191,17 @@
                         </div>
                         <div class="hello_main_navigation hello_single_index_menu2">
                             <ul id="nav-mobile" class="right main-nav-ul">
-                                <li class="active"><a href="http://webstrot.com/html/myporto/light_version/0" class="nav-mobile">home</a></li>
-                                <li><a href="http://webstrot.com/html/myporto/light_version/1" class="waves-effect default">about</a></li>
-                                <li><a href="http://webstrot.com/html/myporto/light_version/2" class="waves-effect default">skill</a></li>
-                                <li><a href="http://webstrot.com/html/myporto/light_version/3" class="waves-effect default">education</a></li>
-                                <li><a href="http://webstrot.com/html/myporto/light_version/4" class="waves-effect default">portfolio</a></li>
-                                <li><a href="http://webstrot.com/html/myporto/light_version/5" class="waves-effect default">testimonial</a></li>
-                                <li><a href="http://webstrot.com/html/myporto/light_version/6" class="waves-effect default">exprience</a></li>
-                                <li><a href="http://webstrot.com/html/myporto/light_version/7" class="waves-effect default">blog</a></li>
-                                <li><a href="http://webstrot.com/html/myporto/light_version/8" class="waves-effect default">contact</a></li>
+                                <li class="active"><a href="#home" class="nav-mobile">home</a></li>
+                                <li><a href="#about" class="waves-effect default">about</a></li>
+                                <li><a href="#skill" class="waves-effect default">skill</a></li>
+                                <li><a href="#education" class="waves-effect default">education</a></li>
+                                <li><a href="#portfolio" class="waves-effect default">portfolio</a></li>
+                                <li><a href="#testimonial" class="waves-effect default">testimonial</a></li>
+                                <li><a href="#exprience" class="waves-effect default">exprience</a></li>
+                                <li><a href="#blog" class="waves-effect default">blog</a></li>
+                                <li><a href="#contact" class="waves-effect default">contact</a></li>
                                 <li>
-                                    <a href="http://webstrot.com/html/myporto/light_version/0" class="waves-effect default cd-search-trigger">
+                                    <a href="#" class="waves-effect default cd-search-trigger">
                                         <i class="fa fa-search" aria-hidden="true"></i>
                                     </a>
                                 </li>
@@ -219,17 +221,17 @@
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                                     <div class="hello_fixed_nav_wrapper hello_single_index_menu3">
                                         <ul class="hello_nav_fixed">
-                                            <li><a href="http://webstrot.com/html/myporto/light_version/0" class="nav-mobile">home</a></li>
-                                            <li><a href="http://webstrot.com/html/myporto/light_version/1" class="waves-effect default">about</a></li>
-                                            <li><a href="http://webstrot.com/html/myporto/light_version/2" class="waves-effect default">skill</a></li>
-                                            <li><a href="http://webstrot.com/html/myporto/light_version/3" class="waves-effect default">education</a></li>
-                                            <li><a href="http://webstrot.com/html/myporto/light_version/4" class="waves-effect default">portfolio</a></li>
-                                            <li><a href="http://webstrot.com/html/myporto/light_version/5" class="waves-effect default">testimonial</a></li>
-                                            <li><a href="http://webstrot.com/html/myporto/light_version/6" class="waves-effect default">exprience</a></li>
-                                            <li><a href="http://webstrot.com/html/myporto/light_version/7" class="waves-effect default">blog</a></li>
-                                            <li><a href="http://webstrot.com/html/myporto/light_version/8" class="waves-effect default">contact</a></li>
+                                            <li><a href="#home" class="nav-mobile">home</a></li>
+                                            <li><a href="#about" class="waves-effect default">about</a></li>
+                                            <li><a href="#skill" class="waves-effect default">skill</a></li>
+                                            <li><a href="#education" class="waves-effect default">education</a></li>
+                                            <li><a href="#portfolio" class="waves-effect default">portfolio</a></li>
+                                            <li><a href="#testimonial" class="waves-effect default">testimonial</a></li>
+                                            <li><a href="#exprience" class="waves-effect default">exprience</a></li>
+                                            <li><a href="#blog" class="waves-effect default">blog</a></li>
+                                            <li><a href="#contact" class="waves-effect default">contact</a></li>
                                             <li>
-                                                <a href="http://webstrot.com/html/myporto/light_version/0" class="waves-effect default cd-search-trigger">
+                                                <a href="#" class="waves-effect default cd-search-trigger">
                                                     <i class="fa fa-search" aria-hidden="true"></i>
                                                 </a>
                                             </li>
@@ -1358,7 +1360,6 @@
 
         <!-- ==================== footer-section start ==================== -->
         <footer id="footer-section" class="footer-section clearfix">
-            <p <a href="#" class="photoshop-color">My Porto</a>  <a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
 
             <div class='backtotop'>
                 <a href="#" class='scroll'>
