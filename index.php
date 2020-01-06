@@ -61,11 +61,11 @@ if(isset($_SESSION['user'])){
                     </div>
 
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Password" name="password_1" required>
+                        <input type="password" class="form-control" placeholder="Password" name="password_1" required>
                     </div>
 
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Repeat Password" name="password_2" required>
+                        <input type="password" class="form-control" placeholder="Repeat Password" name="password_2" required>
                     </div>
 
                     <div class="form-group col-sm-4" >

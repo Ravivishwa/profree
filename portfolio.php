@@ -26,8 +26,8 @@
 
 <body class="clearfix">
 <?php
-  require_once('header.php');
-?>
+//  require_once('header.php');
+//?>
     <div data-scroll='0' class="thetop"></div>
     <!-- for back to top -->
 
@@ -196,9 +196,9 @@
                                 <li><a href="#skill" class="waves-effect default">skill</a></li>
                                 <li><a href="#education" class="waves-effect default">education</a></li>
                                 <li><a href="#portfolio" class="waves-effect default">portfolio</a></li>
-                                <li><a href="#testimonial" class="waves-effect default">testimonial</a></li>
+<!--                                <li><a href="#testimonial" class="waves-effect default">testimonial</a></li>-->
                                 <li><a href="#exprience" class="waves-effect default">exprience</a></li>
-                                <li><a href="#blog" class="waves-effect default">blog</a></li>
+<!--                                <li><a href="#blog" class="waves-effect default">blog</a></li>-->
                                 <li><a href="#contact" class="waves-effect default">contact</a></li>
                                 <li>
                                     <a href="#" class="waves-effect default cd-search-trigger">
@@ -226,9 +226,9 @@
                                             <li><a href="#skill" class="waves-effect default">skill</a></li>
                                             <li><a href="#education" class="waves-effect default">education</a></li>
                                             <li><a href="#portfolio" class="waves-effect default">portfolio</a></li>
-                                            <li><a href="#testimonial" class="waves-effect default">testimonial</a></li>
+<!--                                            <li><a href="#testimonial" class="waves-effect default">testimonial</a></li>-->
                                             <li><a href="#exprience" class="waves-effect default">exprience</a></li>
-                                            <li><a href="#blog" class="waves-effect default">blog</a></li>
+<!--                                            <li><a href="#blog" class="waves-effect default">blog</a></li>-->
                                             <li><a href="#contact" class="waves-effect default">contact</a></li>
                                             <li>
                                                 <a href="#" class="waves-effect default cd-search-trigger">
@@ -825,158 +825,8 @@
             <!-- /.portfolio-area -->
 
         </div>
-        <!-- /.my-portfolio-section -->
-        <!-- ==================== my-portfolio-section end ==================== -->
 
-        <!-- ==================== testomonials-section start ==================== -->
-        <div data-scroll='5' class="testomonials-section sec-p100-bg-bs mb-30 clearfix" id="testimonial">
 
-            <div class="Section-title">
-                <h2>
-					<i class="fa fa-quote-left" aria-hidden="true"></i>
-					testomonials
-				</h2>
-                <span>testomonials</span>
-                <p>
-                    Proin gravida nibh vel velit quet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulpuate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt.
-                </p>
-            </div>
-            <!-- /.Section-title -->
-            <div class="hello_testi_slider_wrapper">
-                <div id="testomonial-carousel" class="owl-carousel owl-theme">
-                    <div class="item">
-
-                        <div class="testomonial-img">
-                            <img src="assets/images/testomonial/testomonial-img1.jpg" alt="Image">
-                        </div>
-                        <!-- /.testomonial-img -->
-
-                        <div class="testomonial-contant">
-                            <h2>
-								Collis Ta'eed <span>(CEO at ABC)</span>
-							</h2>
-                            <p>
-                                Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
-                            </p>
-                            <a href="#" class="common-color">https:example.com</a>
-                        </div>
-
-                        <!-- /.testomonial-contant -->
-                    </div>
-                    <!-- /.item -->
-
-                    <div class="item">
-                        <div class="testomonial-img">
-                            <img src="assets/images/testomonial/testomonial-img2.jpg" alt="Image">
-                        </div>
-                        <!-- /.testomonial-img -->
-
-                        <div class="testomonial-contant">
-                            <h2>
-							Collis Ta'eed <span>(CEO at ABC)</span>
-						</h2>
-                            <p>
-                                Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
-                            </p>
-                            <a href="#" class="common-color">https:example.com</a>
-                        </div>
-                        <!-- /.testomonial-contant -->
-                    </div>
-                    <!-- /.item -->
-
-                    <div class="item">
-                        <div class="testomonial-img">
-                            <img src="assets/images/testomonial/testomonial-img3.jpg" alt="Image">
-                        </div>
-                        <!-- /.testomonial-img -->
-
-                        <div class="testomonial-contant">
-                            <h2>
-							Collis Ta'eed <span>(CEO at ABC)</span>
-						</h2>
-                            <p>
-                                Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
-                            </p>
-                            <a href="#" class="common-color">https:example.com</a>
-                        </div>
-                        <!-- /.testomonial-contant -->
-                    </div>
-                    <!-- /.item -->
-
-                    <div class="item">
-                        <div class="testomonial-img">
-                            <img src="assets/images/testomonial/testomonial-img4.jpg" alt="Image">
-                        </div>
-                        <!-- /.testomonial-img -->
-
-                        <div class="testomonial-contant">
-                            <h2>
-							Collis Ta'eed <span>(CEO at ABC)</span>
-						</h2>
-                            <p>
-                                Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
-                            </p>
-                            <a href="#" class="common-color">https:example.com</a>
-                        </div>
-                        <!-- /.testomonial-contant -->
-                    </div>
-                    <!-- /.item -->
-
-                    <div class="item">
-                        <div class="testomonial-img">
-                            <img src="assets/images/testomonial/testomonial-img5.jpg" alt="Image">
-                        </div>
-                        <!-- /.testomonial-img -->
-
-                        <div class="testomonial-contant">
-                            <h2>
-							Collis Ta'eed <span>(CEO at ABC)</span>
-						</h2>
-                            <p>
-                                Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
-                            </p>
-                            <a href="#" class="common-color">https:example.com</a>
-                        </div>
-                        <!-- /.testomonial-contant -->
-                    </div>
-                    <!-- /.item -->
-                </div>
-            </div>
-            <!-- /#testomonial-carousel -->
-
-            <ul class="brand-list ul-li">
-                <li>
-                    <a href="#!">
-                        <img src="assets/images/brand/brand1.png" alt="Brand Image">
-                    </a>
-                </li>
-                <li>
-                    <a href="#!">
-                        <img src="assets/images/brand/brand2.png" alt="Brand Image">
-                    </a>
-                </li>
-                <li>
-                    <a href="#!">
-                        <img src="assets/images/brand/brand3.png" alt="Brand Image">
-                    </a>
-                </li>
-                <li>
-                    <a href="#!">
-                        <img src="assets/images/brand/brand4.png" alt="Brand Image">
-                    </a>
-                </li>
-                <li>
-                    <a href="#!">
-                        <img src="assets/images/brand/brand5.png" alt="Brand Image">
-                    </a>
-                </li>
-            </ul>
-
-        </div>
-        <!-- /.testomonials-section -->
-        <!-- ==================== testomonials-section end ==================== -->
-
-        <!-- ==================== experience-section start ==================== -->
         <div data-scroll='6' class="experience-section sec-p100-bg-bs mb-30 clearfix" id="exprience">
 
             <div class="Section-title">
@@ -1152,106 +1002,7 @@
         <!-- /.experience-section -->
         <!-- ==================== experience-section end ==================== -->
 
-        <!-- ==================== latest-news-section start ==================== -->
-        <div data-scroll='7' class="latest-news-section sec-p100-bg-bs mb-30 clearfix" id="blog">
 
-            <div class="Section-title">
-                <h2>
-					<i class="fa fa-newspaper-o" aria-hidden="true"></i>
-					Latest News
-				</h2>
-                <span>Latest News</span>
-                <p>
-                    Proin gravida nibh vel velit quet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulpuate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt.
-                </p>
-            </div>
-            <!-- /.Section-title -->
-
-            <div class="news-item clearfix">
-                <div class="news-image b4-1 left">
-                    <img src="assets/images/news/news1.jpg" alt="Image">
-                </div>
-                <!-- /.news-image -->
-                <div class="news-contant right left-align">
-                    <h2 class="title">Creative Deisng News</h2>
-                    <ul class="post-mate2">
-                        <li class="pm-r25">By <a href="#">akshay</a></li>
-                        <li class="pm-r25">11 march 2017</li>
-                        <li class="pm-r25">4 comment</li>
-                    </ul>
-                    <p>
-                        Proin gravida nibh vel velit quet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit. This is Photoshop's version of Lorem Ipsum. Proin gravida nibh.
-                    </p>
-                    <a href="#!" class="custom-btn waves-effect waves-light">
-                        <i class="fa fa-address-book-o" aria-hidden="true"></i> Read More
-                    </a>
-                </div>
-                <!-- /.news-contant -->
-            </div>
-            <!-- /.news-item -->
-
-            <div class="news-item clearfix">
-                <div class="news-image b4-2 right">
-                    <img src="assets/images/news/news2.jpg" alt="Image">
-                </div>
-                <!-- /.news-image -->
-                <div class="news-contant left right-align">
-                    <h2 class="title">Creative Deisng News</h2>
-                    <ul class="post-mate2">
-                        <li class="pm-r25">By <a href="#">akshay</a></li>
-                        <li class="pm-r25">11 march 2017</li>
-                        <li class="pm-r25">4 comment</li>
-                    </ul>
-                    <p>
-                        Proin gravida nibh vel velit quet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit. This is Photoshop's version of Lorem Ipsum. Proin gravida nibh.
-                    </p>
-                    <a href="#!" class="custom-btn waves-effect waves-light">
-                        <i class="fa fa-address-book-o" aria-hidden="true"></i> Read More
-                    </a>
-                </div>
-                <!-- /.news-contant -->
-            </div>
-            <!-- /.news-item -->
-
-            <div class="news-item clearfix">
-                <div class="news-image b4-1 left">
-                    <img src="assets/images/news/news3.jpg" alt="Image">
-                </div>
-                <!-- /.news-image -->
-                <div class="news-contant right left-align">
-                    <h2 class="title">Creative Deisng News</h2>
-                    <ul class="post-mate2">
-                        <li class="pm-r25">By <a href="#">akshay</a></li>
-                        <li class="pm-r25">11 march 2017</li>
-                        <li class="pm-r25">4 comment</li>
-                    </ul>
-                    <p>
-                        Proin gravida nibh vel velit quet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit. This is Photoshop's version of Lorem Ipsum. Proin gravida nibh.
-                    </p>
-                    <a href="#!" class="custom-btn waves-effect waves-light">
-                        <i class="fa fa-address-book-o" aria-hidden="true"></i> Read More
-                    </a>
-                </div>
-                <!-- /.news-contant -->
-            </div>
-            <!-- /.news-item -->
-
-            <ul class="pagination clearfix">
-                <li class="left-arrow waves-effect left">
-                    <a href="#!"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
-                </li>
-
-                <li class="waves-effect"><a href="#!">01</a></li>
-                <li class="active"><a href="#!">02</a></li>
-                <li class="waves-effect"><a href="#!">03</a></li>
-
-                <li class="right-arrow waves-effect right">
-                    <a href="#!"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                </li>
-            </ul>
-
-        </div>
-        <!-- /.latest-news-section -->
         <!-- ==================== latest-news-section end ==================== -->
 
         <!-- ==================== contact-me-section start ==================== -->

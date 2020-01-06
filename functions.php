@@ -14,6 +14,9 @@ $errors   = array();
 if (isset($_POST['register_btn'])) {
   register();
 }
+if (isset($_POST['portfolio_submit'])) {
+  submitDetails();
+}
 
 // call the login() function if register_btn is clicked
 if (isset($_POST['login_btn'])) {
@@ -24,6 +27,10 @@ if (isset($_GET['logout'])) {
   session_destroy();
   unset($_SESSION['user']);
   header("location: ../login.php");
+}
+
+function submitDetails(){
+  header('location: portfolio.php');
 }
 
 // REGISTER USER
@@ -58,7 +65,7 @@ function register(){
       $id = mysqli_insert_id($db);
       // $_SESSION['success']  = "New user successfully created!!";
     sendOtp($email,$id);
-  
+
 
   }
   }

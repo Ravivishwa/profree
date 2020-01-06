@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../pdfprint/.idea/pdfprint.iml" filepath="$PROJECT_DIR$/../pdfprint/.idea/pdfprint.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/profree.iml" filepath="$PROJECT_DIR$/.idea/profree.iml" />
     </modules>
   </component>

@@ -1,11 +1,11 @@
-<?php 
+<?php
 require_once('functions.php');
 ?>
 <header>
     <div class="container">
         <?php
          if(!isset($_SESSION['user'])){
-         ?>   
+         ?>
         <form method="post" action="functions.php" >
             <div class="row">
                 <div class="col-sm-12">
@@ -43,32 +43,17 @@ require_once('functions.php');
                 </div>
             </div>
         </form>
-        <?php            
+        <?php
          }else {
             ?>
             <nav class="navbar navbar-expand-sm">
                 <div>
                     <img class="profileimage" src="one.jpg">
-                </div>  
+                </div>
                  <div class="ml-auto">
                     <a href='logout.php'><button class="btn btn-primary">Logout</button></a>
-                </div>  
-            </nav>
-<!--             <div class="col-sm-12" class="group">
-                <div class="btn-group">
-                    <div>
-                        <img class="profileimage" src="one.jpg">nimesh
-                    </div>                    
-
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">                       
-                        </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Tablet</a>
-                        <a class="dropdown-item" href="#">Smartphone</a>
-                    </div>
                 </div>
-            </div> -->
+            </nav>
             <?php
          }
         ?>

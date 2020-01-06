@@ -18,12 +18,12 @@
         <div class="card">
             <div class="card-body">
                 <h2 class="text-center my-4">Personal Details</h2>
-                <form action="" method="POST">
+                <form action="functions.php" method="POST">
                     <div class="form-group row">
                         <label for="fullname" class="col-md-2 col-form-label">Full Name<sup>*</sup></label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="fullname" required>
-                        </div>  
+                        </div>
                     </div>
                     <div class="form-group row">
                         <label for="fathername" class="col-md-2 col-form-label">Father's Name<sup>*</sup></label>
@@ -35,7 +35,7 @@
                         <label for="address" class="col-md-2 col-form-label">Address<sup>*</sup></label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" id="address" name="address" required>
-                        </div> 
+                        </div>
                     </div>
                     <div class="form-group row">
                         <label for="zipcode" class="col-md-2 col-form-label">Zip Code<sup>*</sup></label>
@@ -61,10 +61,10 @@
                     <div class="form-group row">
                         <label for="website" class="col-md-2 col-form-label">Website</label>
                         <div class="col-md-10">
-                            <input type="url" class="form-control" id="website" name="website" required>
+                            <input type="url" class="form-control" id="website" name="website" >
                         </div>
                     </div>
-                    
+
                     <h2 class="text-center my-4">Professional Skills</h2>
                     <div class="form-row">
                         <div class="form-group col-md-6">
@@ -76,7 +76,7 @@
                           <input type="number" class="form-control" name="rate">
                         </div>
                         <div class="form-group col-md-2">
-                            <div><button  name="add-more" class="btn btn-primary">Add More</button></div> 
+                            <div><button  name="add-more" class="btn btn-primary">Add More</button></div>
                         </div>
                     </div>
 
@@ -99,7 +99,7 @@
                             <input type="text" class="form-control" name="ed_desc" >
                         </div>
                         <div class="form-group col-md-3">
-                            <div><button  name="add-more" class="btn btn-primary">Add More</button></div> 
+                            <div><button  name="add-more" class="btn btn-primary">Add More</button></div>
                         </div>
                     </div>
 
@@ -127,13 +127,13 @@
                         </div>
                         <button  name="add-more" class="btn btn-primary" onclick="add();">Add More</button>
                     </div>
-                    
+
                     <h2 class="text-center my-4">What's on your mind</h2>
                     <div class="form-group">
                         <textarea class="form-control" id="whats_on_mind" rows="3" name="whats_on_mind"></textarea>
                     </div>
                     <br><br>
-                    <button class=" btn btn-primary btn-block"type="submit" name="submit">Submit</button>
+                    <button class=" btn btn-primary btn-block"type="submit" name="portfolio_submit">Submit</button>
                 </form>
             </div>
         </div>
