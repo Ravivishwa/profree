@@ -6,7 +6,6 @@ if(isset($_SESSION['user'])){
 ?>
 <!doctype html>
 <html class="no-js" lang="">
-
 <head>
   <meta charset="utf-8">
   <title></title>
@@ -38,6 +37,13 @@ if(isset($_SESSION['user'])){
 
 
 <div class="container" >
+  <?php
+  if (isset($_SESSION['message']))
+  {
+    echo $_SESSION['message'];
+    unset($_SESSION['message']);
+  }
+  ?>
     <form method="post" action="functions.php">
         <div class="row">
             <div class="col-sm-12">

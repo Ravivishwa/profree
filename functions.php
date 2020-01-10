@@ -62,9 +62,8 @@ function register(){
   $sql = "select * from users where email = '$email'";
   $result = mysqli_query($db, $sql);
   if(mysqli_num_rows($result) >0){
-//  if(false){
-    echo "User already exits";die;
-    return ;
+    $_SESSION['message'] = 'Wrong username/password combination';
+    header('location: index.php');
   }else{
   $fname    =  e($_POST['f_name']);
   $lname    =  e($_POST['l_name']);
@@ -79,17 +78,14 @@ function register(){
     array_push($errors, "The two passwords do not match");
   }
 
-  // register user if there are no errors in the form
   if (count($errors) == 0) {
     $password = md5($password_1);//encrypt the password before saving in the database
-      $query = "INSERT INTO users (fname,lname,email,password,approved)
-              VALUES('$fname', '$lname', '$email', '$password',0)";
+      $query = "INSERT INTO users (fname,lname,email,password,approved,avatar)
+              VALUES('$fname', '$lname', '$email', '$password',0,'')";
       mysqli_query($db, $query);
       $id = mysqli_insert_id($db);
       // $_SESSION['success']  = "New user successfully created!!";
     sendOtp($email,$id);
-
-
   }
   }
 
@@ -131,10 +127,7 @@ function login(){
     sendOtp($email,$id);
     exit();
   }
-   if(mysqli_num_rows($result) >0){
-     echo "User already exits";die;
-     return ;
-   }
+
     $query = "SELECT * FROM users WHERE email='$username' AND password='$password' LIMIT 1";
     $results = mysqli_query($db, $query);
 
@@ -145,6 +138,8 @@ function login(){
         header('location: home.php');
     }else {
       array_push($errors, "Wrong username/password combination");
+      $_SESSION['message'] = 'Wrong username/password combination';
+      header('location: index.php');
     }
   }
 }

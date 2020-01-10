@@ -3,9 +3,9 @@
 require_once('functions.php');
 
 global $db;
-$rno=$_SESSION['otp'];
+$rno=$_SESSION['otp'] ;
 $userid=$_SESSION['user']['id'];
-$urno=$_POST['otpvalue'];
+
 
 
 $query = "SELECT * FROM users WHERE id ='$userid' AND approved=1 LIMIT 1";
@@ -16,6 +16,7 @@ if (mysqli_num_rows($results) == 1 && isLoggedIn()) {
 
 if(isset($_POST['save']))
 {
+  $urno=$_POST['otpvalue'];
     if($rno == $urno)
     {
       echo "done";
