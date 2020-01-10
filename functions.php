@@ -1,9 +1,11 @@
 <?php
-require_once "phpmailer/class.phpmailer.php";
 session_start();
+require_once "phpmailer/class.phpmailer.php";
+
 
 // connect to database
 $db = mysqli_connect('localhost', 'root', '', 'multi_login');
+$userId = isset($_SESSION['user']) ? $_SESSION['user']['id'] : '';
 
 // variable declaration
 $username = "";
@@ -30,6 +32,26 @@ if (isset($_GET['logout'])) {
 }
 
 function submitDetails(){
+  global $db,$userId;
+  $fullName = $_POST['fullname'];
+  $fatherName = $_POST['fathername'];
+  $address = $_POST['address'];
+  $phone = $_POST['phone'];
+  $zipCode = $_POST['zipcode'];
+  $website = $_POST['website'];
+
+  $insert = "INSERT INTO user_data
+                  (user_id,full_name,phone,father_name,address,website,zipcode)
+                VALUES
+                  ('$userId', '$fullName','$phone','$fatherName', '$address','$website','$zipCode')
+                ON DUPLICATE KEY UPDATE
+                  full_name = VALUES(full_name),
+                  phone = VALUES(phone),
+                  father_name = VALUES(father_name),
+                  address = VALUES(address),
+                  zipcode = VALUES(zipcode),
+                  website = VALUES(website)";
+  mysqli_query($db, $insert);
   header('location: portfolio.php');
 }
 
@@ -40,6 +62,7 @@ function register(){
   $sql = "select * from users where email = '$email'";
   $result = mysqli_query($db, $sql);
   if(mysqli_num_rows($result) >0){
+//  if(false){
     echo "User already exits";die;
     return ;
   }else{
@@ -98,37 +121,28 @@ function login(){
     array_push($errors, "Password is required");
   }
 
-  // attempt login if no errors on form
   if (count($errors) == 0) {
     $password = md5($password);
   $email=$_POST['username'];
   $sql = "select id from users where email = '$email' and approved = 0";
-  // echo $sql;die;
   $result = mysqli_query($db, $sql);
   $id = mysqli_fetch_assoc($result)['id'];
   if($id){
     sendOtp($email,$id);
+    exit();
   }
-  // if(mysqli_num_rows($result) >0){
-  //   echo "User already exits";die;
-  //   return ;
-  // }
+   if(mysqli_num_rows($result) >0){
+     echo "User already exits";die;
+     return ;
+   }
     $query = "SELECT * FROM users WHERE email='$username' AND password='$password' LIMIT 1";
     $results = mysqli_query($db, $query);
 
-    if (mysqli_num_rows($results) == 1) { // user found
-      // check if user is admin or user
+    if (mysqli_num_rows($results) == 1) {
       $logged_in_user = mysqli_fetch_assoc($results);
-      if ($logged_in_user['user_type'] == 'admin') {
-
-        $_SESSION['user'] = $logged_in_user;
-        $_SESSION['success']  = "You are now logged in";
-        header('location: admin/home.php');
-      }else{
         $_SESSION['user'] = $logged_in_user;
         $_SESSION['success']  = "You are now logged in";
         header('location: home.php');
-      }
     }else {
       array_push($errors, "Wrong username/password combination");
     }
@@ -193,11 +207,11 @@ function sendOtp($email,$id){
   $mail->SMTPSecure = 'tls';
   $mail->Host = "smtp.gmail.com";
   $mail->Port = 587;
-  $mail->Username = 'ravi.vishwakarma@mediatech.co.in';
+  $mail->Username = 'ravishwakarma1994@gmail.com';
   $mail->Password = 'microg25';
-  $mail->SetFrom('ravi.vishwakarma@mediatech.co.in', 'Ravi');
+  $mail->SetFrom('ravishwakarma1994@gmail.com', 'PROFREEINDIA');
   $mail->AddAddress($email);
-  $mail->Subject = trim("Email Verifcation - www.thesoftwareguy.in");
+  $mail->Subject = trim("Email Verifcation - www.profreeindia.in");
   $mail->MsgHTML($message);
   try {
     $mail->send();

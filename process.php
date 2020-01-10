@@ -1,7 +1,8 @@
 <?php
 
 require_once "phpmailer/class.phpmailer.php";
-session_start();
+//session_start();
+
 $rndno=rand(100000, 999999);//OTP generate
 $message = urlencode("otp number.".$rndno);
 $to=$_POST['email'];
@@ -27,23 +28,26 @@ $mail->SMTPAuth = true;
 $mail->SMTPSecure = 'tls';
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 587;
-$mail->Username = 'ravi.vishwakarma@mediatech.co.in';
-$mail->Password = 'microg25';
-$mail->SetFrom('ravi.vishwakarma@mediatech.co.in', 'Ravi');
+$mail->Username = 'ravishwakarma1994@gmail.com';
+$mail->Password = 'micasasarog25';
+$mail->SetFrom('ravishwakarma1994@gmail.com', 'Ravi');
 $mail->AddAddress($to);
-$mail->Subject = trim("Email Verifcation - www.thesoftwareguy.in");
+$mail->Subject = trim("Email Verifcation - PROFREEINDIA.COM");
 $mail->MsgHTML($message);
 try {
     $mail->send();
     $msg = "An email has been sent for verfication.";
     $msgType = "success";
+    echo $msg;die;
 } catch (Exception $ex) {
     $msg = $ex->getMessage();
+  echo $msg;die;
     $msgType = "warning";
 }
 
 if(isset($_POST['btn-save']))
 {
+  var_dump($_POST);die;
     $_SESSION['name']=$_POST['name'];
     $_SESSION['email']=$_POST['email'];
     $_SESSION['phone']=$_POST['phone'];

@@ -1,3 +1,9 @@
+<?php
+require_once('functions.php');
+if(isset($_SESSION['user'])){
+  header("location: home.php");
+}
+?>
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -25,12 +31,6 @@
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 </head>
-<?php
-require_once('functions.php');
-if(isset($_SESSION['user'])){
-  header("location: home.php");
-}
-?>
 <body>
 <?php
   require_once('header.php');

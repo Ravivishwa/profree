@@ -1,3 +1,20 @@
+<?php
+require_once ('functions.php');
+global $userId,$db;
+
+$select = "Select * from users where id = '$userId'";
+$result = mysqli_query($db, $select);
+$row = mysqli_fetch_assoc($result);
+$avatar = $row['avatar'];
+$email = $row['email'];
+//var_dump($row);die;
+
+$select = "Select * from user_data where user_id = '$userId'";
+$result = mysqli_query($db, $select);
+$user = mysqli_fetch_assoc($result);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,12 +52,11 @@
     <div class="fixed-left-side-body">
         <div class="profile">
             <div class="profile-image center-align">
-                <img src="assets/images/akshay2.png" alt="Image">
+                <img src="<?php echo 'uploads/'.$userId.'/'.$avatar?>" alt="Image">
             </div>
             <!-- /.profile-image -->
-
             <div class="profile-name center-align">
-                <h1 class="user-name">Akshay Handge</h1>
+                <h1 class="user-name"><?php echo $user['full_name']?></h1>
                 <p>
                     <span class="photoshop-color">UI/UX Designer</span> in Dewas
                 </p>
@@ -133,10 +149,10 @@
 
                                 <li class="sn-user">
                                     <span class="sn-user-img">
-								<img src="assets/images/akshay1.png" alt="Image">
+								<img src="<?php echo 'uploads/'.$userId.'/'.$avatar?>" alt="Image">
 							</span>
                                     <span class="sn-user-name">
-								Akshay
+								<?php echo $user['full_name']?>
 							</span>
                                     <a href="#" class="sn-cv-link common-color">download cv</a>
                                 </li>
@@ -267,7 +283,7 @@
                         <div class="col l6 m6">
                             <div class="item-child-left left-align">
                                 <h2 class="hi">hello.</h2>
-                                <p class="name">My name is Akshay</p>
+                                <p class="name">My name is <?php echo $user['full_name']?></p>
                                 <small class="position mb-30">& I am absolutely design addicted</small>
 
                                 <a href="#!" class="custom-btn waves-effect waves-light">
@@ -280,7 +296,7 @@
 
                         <div class="col l6 m6">
                             <div class="item-child-right right-align">
-                                <img src="assets/images/akshay1.png" alt="Image">
+                                <img src="<?php echo 'uploads/'.$userId.'/'.$avatar?>" alt="Image">
                                 <a href="#" class="chat waves-effect waves-light">
                                     <i class="fa fa-commenting-o" aria-hidden="true"></i>
                                 </a>
@@ -299,7 +315,7 @@
                         <div class="col l6 m6">
                             <div class="item-child-left left-align">
                                 <h2 class="hi">hello.</h2>
-                                <p class="name">My name is Akshay</p>
+                                <p class="name">My name is <?php echo $user['full_name']?></p>
                                 <small class="position mb-30">& I am absolutely design addicted</small>
 
                                 <a href="#!" class="custom-btn waves-effect waves-light">
@@ -312,7 +328,7 @@
 
                         <div class="col l6 m6">
                             <div class="item-child-right right-align">
-                                <img src="assets/images/akshay1.png" alt="Image">
+                              <img src="<?php echo 'uploads/'.$userId.'/'.$avatar?>" alt="Image">
                                 <a href="#" class="chat waves-effect waves-light">
                                     <i class="fa fa-commenting-o" aria-hidden="true"></i>
                                 </a>
@@ -331,7 +347,7 @@
                         <div class="col l6 m6">
                             <div class="item-child-left left-align">
                                 <h2 class="hi">hello.</h2>
-                                <p class="name">My name is Akshay</p>
+                                <p class="name">My name is <?php echo $user['full_name']?></p>
                                 <small class="position mb-30">& I am absolutely design addicted</small>
 
                                 <a href="#!" class="custom-btn waves-effect waves-light">
@@ -344,7 +360,7 @@
 
                         <div class="col l6 m6">
                             <div class="item-child-right right-align">
-                                <img src="assets/images/akshay1.png" alt="Image">
+                              <img src="<?php echo 'uploads/'.$userId.'/'.$avatar?>" alt="Image">
                                 <a href="#" class="chat waves-effect waves-light">
                                     <i class="fa fa-commenting-o" aria-hidden="true"></i>
                                 </a>
@@ -418,37 +434,37 @@
                                     <tr>
                                         <td class="td-w25">Full Name</td>
                                         <td class="td-w10">:</td>
-                                        <td class="td-w65">Akshay Handge</td>
+                                        <td class="td-w65"><?php echo $user['full_name']?></td>
                                     </tr>
                                     <tr>
                                         <td class="td-w25">Father's Name</td>
                                         <td class="td-w10">:</td>
-                                        <td class="td-w65">Mr. Deepak Handge</td>
+                                        <td class="td-w65"><?php echo $user['father_name']?></td>
                                     </tr>
                                     <tr>
                                         <td class="td-w25">Address</td>
                                         <td class="td-w10">:</td>
-                                        <td class="td-w65">Street 110-B Kalani Bag, Dewas, M.P. INDIA</td>
+                                        <td class="td-w65"><?php echo $user['address']?></td>
                                     </tr>
                                     <tr>
                                         <td class="td-w25">Zip Code</td>
                                         <td class="td-w10">:</td>
-                                        <td class="td-w65">12345</td>
+                                        <td class="td-w65"><?php echo $user['zipcode']?></td>
                                     </tr>
                                     <tr>
                                         <td class="td-w25">Phone</td>
                                         <td class="td-w10">:</td>
-                                        <td class="td-w65">+0 123456789 , +0 123456789</td>
+                                        <td class="td-w65"><?php echo $user['phone']?></td>
                                     </tr>
                                     <tr>
                                         <td class="td-w25">Email</td>
                                         <td class="td-w10">:</td>
-                                        <td class="td-w65">support@example.com</td>
+                                        <td class="td-w65"><?php echo $email?></td>
                                     </tr>
                                     <tr>
                                         <td class="td-w25">Website</td>
                                         <td class="td-w10">:</td>
-                                        <td class="td-w65">http://example.com</td>
+                                        <td class="td-w65"><?php echo $user['website']?></td>
                                     </tr>
 
                                 </tbody>
@@ -740,91 +756,7 @@
         <!-- /.education-section -->
         <!-- ==================== education-section end ==================== -->
 
-        <!-- ==================== my-portfolio-section start ==================== -->
-        <div data-scroll='4' class="my-portfolio-section sec-p100-bg-bs mb-30 clearfix" id="portfolio">
 
-            <div class="Section-title">
-                <h2>
-					<i class="fa fa-briefcase" aria-hidden="true"></i>
-					My Portfolio
-				</h2>
-                <span>My Portfolio</span>
-                <p>
-                    Proin gravida nibh vel velit quet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulpuate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt.
-                </p>
-            </div>
-            <!-- /.Section-title -->
-
-            <div class="portfolio-area">
-
-                <div id="filters" class="button-group">
-                    <button class="button waves-effect default is-checked" data-filter="*">all</button>
-                    <button class="button waves-effect default" data-filter=".metal">logos</button>
-                    <button class="button waves-effect default" data-filter=".transition">websites</button>
-                    <button class="button waves-effect default" data-filter=".alkali, .alkaline-earth">apps</button>
-                    <button class="button waves-effect default" data-filter=":not(.transition)">softwars</button>
-
-                </div>
-
-                <div class="grid">
-                    <div class="element-item transition metal" data-category="transition">
-                        <div class="ei-child">
-                            <img src="assets/images/portfolio/img-1.jpg" alt="Image">
-                            <a href="#" class="more">
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="element-item metalloid" data-category="metalloid">
-                        <div class="ei-child">
-                            <img src="assets/images/portfolio/img-2.jpg" alt="Image">
-                            <a href="#" class="more">
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="element-item post-transition metal" data-category="post-transition">
-                        <div class="ei-child">
-                            <img src="assets/images/portfolio/img-3.jpg" alt="Image">
-                            <a href="#" class="more">
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="element-item post-transition metal" data-category="post-transition">
-                        <div class="ei-child">
-                            <img src="assets/images/portfolio/img-4.jpg" alt="Image">
-                            <a href="#" class="more">
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="element-item transition metal" data-category="transition">
-                        <div class="ei-child">
-                            <img src="assets/images/portfolio/img-5.jpg" alt="Image">
-                            <a href="#" class="more">
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="element-item alkali metal" data-category="alkali">
-                        <div class="ei-child">
-                            <img src="assets/images/portfolio/img-6.jpg" alt="Image">
-                            <a href="#" class="more">
-                                <i class="fa fa-plus" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.grid -->
-
-                <a href="#!" class="custom-btn waves-effect waves-light">
-                    <i class="fa fa-refresh" aria-hidden="true"></i> load more
-                </a>
-            </div>
-            <!-- /.portfolio-area -->
-
-        </div>
 
 
         <div data-scroll='6' class="experience-section sec-p100-bg-bs mb-30 clearfix" id="exprience">
