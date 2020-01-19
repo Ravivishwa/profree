@@ -10,7 +10,6 @@ $targetDir = "uploads/".$userid ;
 
 if(!is_dir($targetDir))
 {
-  echo "string";
   mkdir($targetDir, 0777, true);
 }
 

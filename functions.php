@@ -1,5 +1,6 @@
 <?php
 session_start();
+// var_dump($_FILES);die();
 require_once "phpmailer/class.phpmailer.php";
 
 
@@ -16,7 +17,7 @@ $errors   = array();
 if (isset($_POST['register_btn'])) {
   register();
 }
-if (isset($_POST['portfolio_submit'])) {
+if (isset($_POST['po-submit'])) { 
   submitDetails();
 }
 
@@ -40,17 +41,51 @@ function submitDetails(){
   $zipCode = $_POST['zipcode'];
   $website = $_POST['website'];
 
+  $exp = $edu = $ps = [];
+  $experience = $skills = $education = '';
+  if(isset($_POST['company_name'])){
+    for($i=0;$i<count($_POST['company_name']);$i++){
+      $exp['experience'][$i]['company'] =  $_POST['company_name'][$i];
+      $exp['experience'][$i]['year'] =  $_POST['year'][$i];
+      $exp['experience'][$i]['designation'] =  $_POST['designation'][$i];
+      $exp['experience'][$i]['ex_desc'] =  $_POST['ex_desc'][$i];
+      $exp['experience'][$i]['ex_website']=  $_POST['ex_website'][$i];
+    }
+    $experience = serialize($exp);
+  }
+
+  if(isset($_POST['skill'])){
+    for($i=0;$i<count($_POST['skill']);$i++){
+      $ps['skills'][$i]['skill'] =  $_POST['skill'][$i];
+      $ps['skills'][$i]['rate'] =  $_POST['rate'][$i];
+    }     
+    $skills = serialize($ps);
+  } 
+
+  if(isset($_POST['degree'])){
+    for($i=0;$i<count($_POST['degree']);$i++){
+    $edu['education'][$i]['degree'] =  $_POST['degree'][$i];
+    $edu['education'][$i]['university'] =  $_POST['university'][$i];
+    $edu['education'][$i]['year_conduct'] =  $_POST['year_conduct'][$i];
+    $edu['education'][$i]['ed_desc'] =  $_POST['ed_desc'][$i];
+    }  
+    $education = serialize($edu);   
+  }
+
   $insert = "INSERT INTO user_data
-                  (user_id,full_name,phone,father_name,address,website,zipcode)
+                  (user_id,full_name,phone,father_name,address,website,zipcode,education,experience,skills)
                 VALUES
-                  ('$userId', '$fullName','$phone','$fatherName', '$address','$website','$zipCode')
+                  ('$userId', '$fullName','$phone','$fatherName', '$address','$website','$zipCode','$education','$experience','$skills')
                 ON DUPLICATE KEY UPDATE
                   full_name = VALUES(full_name),
                   phone = VALUES(phone),
                   father_name = VALUES(father_name),
                   address = VALUES(address),
                   zipcode = VALUES(zipcode),
-                  website = VALUES(website)";
+                  website = VALUES(website),
+                  education = VALUES(education),
+                  experience = VALUES(experience),
+                  skills = VALUES(skills)";
   mysqli_query($db, $insert);
   header('location: portfolio.php');
 }
@@ -62,7 +97,7 @@ function register(){
   $sql = "select * from users where email = '$email'";
   $result = mysqli_query($db, $sql);
   if(mysqli_num_rows($result) >0){
-    $_SESSION['message'] = 'Wrong username/password combination';
+    $_SESSION['message'] = 'Email/User already exists';
     header('location: index.php');
   }else{
   $fname    =  e($_POST['f_name']);

@@ -21,10 +21,10 @@ if(isset($_SESSION['user'])){
 
   <meta name="theme-color" content="#fafafa">
 
-   <script src="js/vendor/modernizr-3.8.0.min.js"></script>
+  <script src="js/vendor/modernizr-3.8.0.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
   <script src="js/plugins.js"></script>
@@ -37,13 +37,6 @@ if(isset($_SESSION['user'])){
 
 
 <div class="container" >
-  <?php
-  if (isset($_SESSION['message']))
-  {
-    echo $_SESSION['message'];
-    unset($_SESSION['message']);
-  }
-  ?>
     <form method="post" action="functions.php">
         <div class="row">
             <div class="col-sm-12">

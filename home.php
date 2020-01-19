@@ -4,29 +4,24 @@ if(!isLoggedIn()){
   header('location: index.php');
 }
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<link rel="stylesheet" href="css/main.css">
-	 <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
-</head>
 <body>
 <?php
   require_once('header.php');
- ?>    <div class="container p-0">
+ ?>    <div class="container p-0 crumbs">
+          <div class="breadcrumb flat">
+            <a href="#pd" class="active pd">Personal Details</a>
+            <a href="#ps" class="ps">Professional Skills</a>
+            <a href="#edu" class="edu">Education</a>
+            <a href="#exp" class="exp">Experience</a>
+            <a href="#woym" class="woym">On your Mind?</a>
+            <a href="#portfolio" class="portfolio">Portfolio</a>
+        </div>
+
         <div class="card">
             <div class="card-body">
-                <h2 class="text-center my-4">Personal Details</h2>
-                <form action="functions.php" method="POST">
+              <form action="functions.php" method="POST" enctype="multipart/form-data">
+                <div id="pd">
+                  <h2 class="text-center my-4 " >Personal Details</h2>
                     <div class="container">
                       <div class="avatar-upload">
                         <div class="avatar-edit">
@@ -84,27 +79,31 @@ if(!isLoggedIn()){
                             <input type="url" class="form-control" id="website" name="website" >
                         </div>
                     </div>
+                </div>
 
+                  <div class="d-none" id="ps">
                     <h2 class="text-center my-4">Professional Skills</h2>
                       <div class="pskill-main-parent">
                         <div class="repeat-me">
                           <div class="form-row" id="to-repeat">
                             <div class="form-group col-md-6">
                               <label for="skills">Skills</label>
-                              <input type="text" class="form-control" name="_s[0][skills]">
+                              <input type="text" class="form-control" name="skill[]">
                             </div>
                             <div class="form-group col-md-6">
                               <label for="rate">Rate in %</label>
-                              <input type="number" class="form-control" name="_s[0][rate]">
+                              <input type="number" class="form-control" name="rate[]">
                             </div>
                           </div>
                         </div>
                         <div class="form-group col-md-2">
                           <div><button  name="add-more" class="btn btn-primary add-more">Add More</button></div>
                         </div>
-                       </div>
+                       </div>                    
+                  </div>
 
-                      <h2 class="text-center my-4">Education</h2>
+                  <div class="d-none" id="edu">
+                      <h2 class="text-center my-4" >Education</h2>
                       <div class="edu-main-parent">
                         <div class="edu-repeat-me">
                           <div class="form-row" id ="edu-to-repeat">
@@ -129,10 +128,11 @@ if(!isLoggedIn()){
                         <div class="form-group col-md-2">
                           <div><button  name="add-more" class="btn btn-primary add-more">Add More</button></div>
                         </div>
-                      </div>
+                      </div>                    
+                  </div>
 
-
-                    <h2 class="text-center my-4">Experience</h2>
+                  <div class="d-none" id="exp">                    
+                    <h2 class="text-center my-4" >Experience</h2>
                     <div class="exp-main-parent">
                       <div class="exp-repeat-me">
                         <div class="form-row" id ="exp-to-repeat">
@@ -162,70 +162,72 @@ if(!isLoggedIn()){
                         <div><button  name="add-more" class="btn btn-primary add-more">Add More</button></div>
                       </div>
                     </div>
-
-                    <h2 class="text-center my-4">What's on your mind</h2>
-                    <div class="form-group">
-                        <textarea class="form-control" id="whats_on_mind" rows="3" name="whats_on_mind"></textarea>
+                  </div>
+                  
+                    <div class="d-none" id="woym">
+                      <h2 class="text-center my-4" >What's on your mind</h2>
+                      <div class="form-group">
+                          <textarea class="form-control" id="whats_on_mind" rows="3" name="whats_on_mind"></textarea>
+                      </div>                      
                     </div>
-                    <br><br>
-                    <button class=" btn btn-primary btn-block"type="submit" name="portfolio_submit">Submit</button>
+
+                     <div class="d-none" id="portfolio">
+                      <h2 class="text-center my-4" >Portfolio Upload</h2>
+                      <div class="form-check-inline">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" id="radio1" name="image" value="Image" checked>Image
+                        </label>
+                      </div>
+                      <div class="form-check-inline">
+                        <label class="form-check-label" >
+                          <input type="radio" class="form-check-input" id="radio2" name="article" value="Article">Article
+                        </label>
+                      </div>
+                       <div class="form-check-inline">
+                        <label class="form-check-label" >
+                          <input type="radio" class="form-check-input" id="radio3" name="code" value="Code">Code
+                        </label>
+                      </div>
+                       <div class="form-check-inline">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" id="radio4" name="video" value="Video">Video
+                        </label>
+                      </div>
+                       <div class="form-check-inline">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" id="radio5" name="audio" value="Audio">Audio
+                        </label>
+                      </div>
+                       <div class="form-check-inline">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" id="radio6" name="others" value="Others">Others 
+                        </label>
+                      </div>
+                      <div class="form-group">
+                           <label id="content-description">Title:</label>
+                             <input class="form-control input-lg" id="inputlg" name="title"  type="text">
+                        </div>
+                        <div class="form-group">
+                           <label id="content-description">Portfolio description:</label>
+                             <textarea class="form-control" rows="10" maxlength="1000" name="description"  id="comment"></textarea>
+                        </div>
+                        <div class="form-group">
+                           <label id="upload-input">Upload file:</label>
+                            <input type="file" class="btn btn-outline-dark btn-lg btn-block" name="port">
+                        </div>                    
+                    </div>                 
+
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <div class="btn btn-primary btn-lg back"><i class="fas fa-arrow-circle-left"></i></div>
+                            <div class="btn btn-primary btn-lg forward"><i class="fas fa-arrow-circle-right"></i></div>
+                            <button class="btn btn-primary btn-md d-none po-submit" name="po-submit" type="submit">Submit
+                            </button>
+                         </div>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
-    <script >
-      $(function(){
-        $('.pskill-main-parent').on('click', '.add-more', (e) => {
-          e.preventDefault();
-          var currentDiv =  $(this).find('.repeat-me')
-          var clonedRow = $(this).find('#to-repeat').clone();
-          clonedRow.appendTo(currentDiv);
-        });
-
-        $('.edu-main-parent').on('click', '.add-more', (e) => {
-          e.preventDefault();
-          var currentDiv =  $(this).find('.edu-repeat-me')
-          var clonedRow = $(this).find('#edu-to-repeat').clone();
-          clonedRow.appendTo(currentDiv);
-        });
-
-        $('.exp-main-parent').on('click', '.add-more', (e) => {
-          e.preventDefault();
-          var currentDiv =  $(this).find('.exp-repeat-me')
-          var clonedRow = $(this).find('#exp-to-repeat').clone();
-          clonedRow.appendTo(currentDiv);
-        });
-
-        function readURL(input) {
-          if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-              $('#imagePreview').css('background-image', 'url('+e.target.result +')');
-              $('#imagePreview').hide();
-              $('#imagePreview').fadeIn(650);
-            }
-            reader.readAsDataURL(input.files[0]);
-          }
-        }
-        $("#imageUpload").change(function() {
-          readURL(this);
-          var file_data = $('#imageUpload').prop('files')[0];
-          var form_data = new FormData();
-          form_data.append('file', file_data);
-          $.ajax({
-            url: "upload.php",
-            type: "POST",
-            data: form_data,
-            contentType: false,
-            cache: false,
-            processData:false,
-            success: function(data){
-              console.log(data);
-            }
-          });
-        });
-      });
-    </script>
-
 </body>
 </html>
