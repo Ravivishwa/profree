@@ -52,73 +52,85 @@ $(function(){
         });
         $('.pd').on('click',function(e){
           e.preventDefault()
-          $(this).addClass("active").siblings().removeClass("active"); 
+          $(this).addClass("active").siblings().removeClass("active");
           $("#ps").attr("style", "display: none !important");
           $("#exp").attr("style", "display: none !important");
           $("#edu").attr("style", "display: none !important");
           $("#woym").attr("style", "display: none !important");
           $("#pd").attr("style", "display: block !important");
-          $("#portfolio").attr("style", "display: none !important");     
-        })        
+          $("#portfolio").attr("style", "display: none !important");
+          $('.forward').css('display','inline-block')
+          $('.po-submit').attr("style", "display: none !important");
+        })
 
         $('.ps').on('click',function(e){
           e.preventDefault()
-          $(this).addClass("active").siblings().removeClass("active"); 
+          $(this).addClass("active").siblings().removeClass("active");
           $("#ps").attr("style", "display: block !important");
           $("#exp").attr("style", "display: none !important");
           $("#edu").attr("style", "display: none !important");
           $("#woym").attr("style", "display: none !important");
           $("#pd").attr("style", "display: none !important");
-          $("#portfolio").attr("style", "display: none !important");     
+          $("#portfolio").attr("style", "display: none !important");
+          $('.forward').css('display','inline-block')
+          $('.po-submit').attr("style", "display: none !important");
         })
         $('.exp').on('click',function(e){
           e.preventDefault()
-          $(this).addClass("active").siblings().removeClass("active"); 
+          $(this).addClass("active").siblings().removeClass("active");
           $("#exp").attr("style", "display: block !important");
           $("#ps").attr("style", "display: none !important");
           $("#edu").attr("style", "display: none !important");
-          $("#woym").attr("style", "display: none !important"); 
-          $("#pd").attr("style", "display: none !important");     
-          $("#portfolio").attr("style", "display: none !important");         
-        })  
+          $("#woym").attr("style", "display: none !important");
+          $("#pd").attr("style", "display: none !important");
+          $("#portfolio").attr("style", "display: none !important");
+          $('.forward').css('display','inline-block')
+          $('.po-submit').attr("style", "display: none !important");
+        })
         $('.edu').on('click',function(e){
           e.preventDefault()
-          $(this).addClass("active").siblings().removeClass("active"); 
+          $(this).addClass("active").siblings().removeClass("active");
           $("#edu").attr("style", "display: block !important");
           $("#ps").attr("style", "display: none !important");
           $("#exp").attr("style", "display: none !important");
-          $("#woym").attr("style", "display: none !important"); 
-          $("#pd").attr("style", "display: none !important");  
-          $("#portfolio").attr("style", "display: none !important");           
-        })   
+          $("#woym").attr("style", "display: none !important");
+          $("#pd").attr("style", "display: none !important");
+          $("#portfolio").attr("style", "display: none !important");
+          $('.forward').css('display','inline-block')
+          $('.po-submit').attr("style", "display: none !important");
+        })
         $('.woym').on('click',function(e){
           e.preventDefault()
-          $(this).addClass("active").siblings().removeClass("active"); 
+          $(this).addClass("active").siblings().removeClass("active");
           $("#woym").attr("style", "display: block !important");
           $("#ps").attr("style", "display: none !important");
           $("#exp").attr("style", "display: none !important");
-          $("#edu").attr("style", "display: none !important");  
-          $("#pd").attr("style", "display: none !important"); 
-          $("#portfolio").attr("style", "display: none !important");     
-        })          
+          $("#edu").attr("style", "display: none !important");
+          $("#pd").attr("style", "display: none !important");
+          $("#portfolio").attr("style", "display: none !important");
+          $('.forward').css('display','inline-block')
+          $('.po-submit').attr("style", "display: none !important");
+        })
         $('.portfolio').on('click',function(e){
           e.preventDefault()
-          $(this).addClass("active").siblings().removeClass("active"); 
+          $(this).addClass("active").siblings().removeClass("active");
           $("#portfolio").attr("style", "display: block !important");
           $("#woym").attr("style", "display: none !important");
           $("#ps").attr("style", "display: none !important");
           $("#exp").attr("style", "display: none !important");
-          $("#edu").attr("style", "display: none !important");  
-          $("#pd").attr("style", "display: none !important");      
-        })       
+          $("#edu").attr("style", "display: none !important");
+          $("#pd").attr("style", "display: none !important");
+          $('.po-submit').attr("style", "display: inline-block !important");
+          $('.forward').css('display','none')
+        })
 
       $('.back').on('click',function(e){
           e.preventDefault()
          $('.crumbs').find('.active').prev().click()
          $('.forward').css('display','inline-block')
          $('.po-submit').attr("style", "display: none !important");
-      })  
-      
+      })
+
       $('.forward').on('click',function(e){
           e.preventDefault()
          $('.crumbs').find('.active').next().click()
@@ -127,5 +139,5 @@ $(function(){
             $(this).css('display','none')
             $('.po-submit').attr("style", "display: inline-block !important");
          }
-      })                                    
+      })
       });

@@ -7,11 +7,11 @@ $result = mysqli_query($db, $select);
 $row = mysqli_fetch_assoc($result);
 $avatar = $row['avatar'];
 $email = $row['email'];
-//var_dump($row);die;
 
 $select = "Select * from user_data where user_id = '$userId'";
 $result = mysqli_query($db, $select);
 $user = mysqli_fetch_assoc($result);
+$experience = unserialize($user['experience']);
 
 ?>
 
@@ -750,11 +750,8 @@ $user = mysqli_fetch_assoc($result);
                 <h2>
 					<i class="fa fa-graduation-cap" aria-hidden="true"></i>
 					education
-				</h2>
+				    </h2>
                 <span>education</span>
-                <p>
-                    Proin gravida nibh vel velit quet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulpuate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt.
-                </p>
             </div>
             <!-- /.Section-title -->
 
@@ -862,156 +859,42 @@ $user = mysqli_fetch_assoc($result);
             <!-- /.Section-title -->
 
             <div class="row">
-                <div class="col l8 m12 s12">
+                <div class="">
                     <div class="experience-left">
                         <div class="experience-left-item-area">
                             <div class="border-left">
-
-                                <div class="experience-item exp1">
-                                    <h2 class="title">Web Designer at Microsoft Inc.</h2>
+<!--                                <div class="experience-item exp1">-->
+<!--                                    <h2 class="title">Web Designer at Microsoft Inc.</h2>-->
+<!--                                    <ul class="post-mate ul-li">-->
+<!--                                        <li class="photoshop-color">Jun 2016 - <span class="current photoshop-bg">Current</span></li>-->
+<!--                                    </ul>-->
+<!--                                    <p>-->
+<!--                                        Working as Web Developer at MicroSoft. Leading the support administration and quality controlling of products submited by the global freelance authors.-->
+<!--                                    </p>-->
+<!--                                    <a href="#" class="photoshop-color">https:example.com</a>-->
+<!--                                </div>-->
+                                <?php foreach ($experience['experience'] as $item => $exp) :?>
+                                <div class="experience-item <?php echo "exp".$item?>">
+                                    <h2 class="title"><?php echo $exp['designation'] . ' at ' .$exp['company']?></h2>
                                     <ul class="post-mate ul-li">
-                                        <li class="photoshop-color">Jun 2016 - <span class="current photoshop-bg">Current</span></li>
+                                        <li class="jquery-color"><?php echo $exp['year']?></li>
                                     </ul>
                                     <!-- /.post-mate -->
                                     <p>
-                                        Working as Web Developer at MicroSoft. Leading the support administration and quality controlling of products submited by the global freelance authors.
+                                      <?php echo $exp['ex_desc']?>
                                     </p>
-                                    <a href="#" class="photoshop-color">https:example.com</a>
+                                    <a href="#" class="jquery-color"><?php echo $exp['ex_website']?></a>
                                 </div>
-                                <!-- /.experience-item -->
-
-                                <div class="experience-item exp2">
-                                    <h2 class="title">Web Designer at Microsoft Inc.</h2>
-                                    <ul class="post-mate ul-li">
-                                        <li class="jquery-color">Jun 2015 - july 2016</li>
-                                    </ul>
-                                    <!-- /.post-mate -->
-                                    <p>
-                                        Working as Web Developer at MicroSoft. Leading the support administration and quality controlling of products submited by the global freelance authors.
-                                    </p>
-                                    <a href="#" class="jquery-color">https:example.com</a>
-                                </div>
-                                <!-- /.experience-item -->
-
-                                <div class="experience-item exp3">
-                                    <h2 class="title">Web Designer at Microsoft Inc.</h2>
-                                    <ul class="post-mate ul-li">
-                                        <li class="php-color">April 2014 - November 2015</li>
-                                    </ul>
-                                    <!-- /.post-mate -->
-                                    <p>
-                                        Working as Web Developer at MicroSoft. Leading the support administration and quality controlling of products submited by the global freelance authors.
-                                    </p>
-                                    <a href="#" class="php-color">https:example.com</a>
-                                </div>
-                                <!-- /.experience-item -->
-
-                                <div class="experience-item exp1">
-                                    <h2 class="title">Web Designer at Microsoft Inc.</h2>
-                                    <ul class="post-mate ul-li">
-                                        <li class="photoshop-color">Jun 2016 - <span class="current photoshop-bg">Current</span></li>
-                                    </ul>
-                                    <!-- /.post-mate -->
-                                    <p>
-                                        Working as Web Developer at MicroSoft. Leading the support administration and quality controlling of products submited by the global freelance authors.
-                                    </p>
-                                    <a href="#" class="photoshop-color">https:example.com</a>
-                                </div>
-                                <!-- /.experience-item -->
-
-                                <div class="experience-item exp2">
-                                    <h2 class="title">Web Designer at Microsoft Inc.</h2>
-                                    <ul class="post-mate ul-li">
-                                        <li class="jquery-color">Jun 2015 - july 2016</li>
-                                    </ul>
-                                    <!-- /.post-mate -->
-                                    <p>
-                                        Working as Web Developer at MicroSoft. Leading the support administration and quality controlling of products submited by the global freelance authors.
-                                    </p>
-                                    <a href="#" class="jquery-color">https:example.com</a>
-                                </div>
-                                <!-- /.experience-item -->
-
-                                <div class="experience-item exp3">
-                                    <h2 class="title">Web Designer at Microsoft Inc.</h2>
-                                    <ul class="post-mate ul-li">
-                                        <li class="php-color">April 2014 - November 2015</li>
-                                    </ul>
-                                    <!-- /.post-mate -->
-                                    <p>
-                                        Working as Web Developer at MicroSoft. Leading the support administration and quality controlling of products submited by the global freelance authors.
-                                    </p>
-                                    <a href="#" class="php-color">https:example.com</a>
-                                </div>
-                                <!-- /.experience-item -->
-
+                              <?php endforeach; ?>
                             </div>
-                            <!-- border-left -->
                         </div>
-                        <!-- /.experience-left-item-area -->
 
                     </div>
-                    <!-- /.experience-left -->
                 </div>
                 <!-- colm8 -->
 
                 <div class="col l4 m12 s12">
-                    <div class="experience-right">
 
-                        <div class="achivement">
-                            <h2 class="title">
-								<span class="thumb achived-color">
-									<i class="fa fa-trophy" aria-hidden="true"></i>
-								</span>
-								<!-- /.thumb -->
-								03 Adward Wins
-							</h2>
-                        </div>
-                        <!-- /.achivement -->
-
-                        <div class="achivement">
-                            <h2 class="title">
-								<span class="thumb">
-									01
-								</span>
-								<!-- /.thumb -->
-								Css Awwwards
-							</h2>
-                            <p>
-                                Proin gravida nibh vel velit quet. Aenean sollicitudin, lorem quis bibendum.
-                            </p>
-                        </div>
-                        <!-- /.achivement -->
-
-                        <div class="achivement">
-                            <h2 class="title">
-								<span class="thumb">
-									02
-								</span>
-								<!-- /.thumb -->
-								The Web Awards
-							</h2>
-                            <p>
-                                Proin gravida nibh vel velit quet. Aenean sollicitudin, lorem quis bibendum.
-                            </p>
-                        </div>
-                        <!-- /.achivement -->
-
-                        <div class="achivement">
-                            <h2 class="title">
-								<span class="thumb">
-									03
-								</span>
-								<!-- /.thumb -->
-								Logo Design
-							</h2>
-                            <p>
-                                Proin gravida nibh vel velit quet. Aenean sollicitudin, lorem quis bibendum.
-                            </p>
-                        </div>
-                        <!-- /.achivement -->
-
-                    </div>
                     <!-- /.experience-right -->
                 </div>
                 <!-- col m4 -->
@@ -1021,9 +904,6 @@ $user = mysqli_fetch_assoc($result);
         </div>
         <!-- /.experience-section -->
         <!-- ==================== experience-section end ==================== -->
-
-
-        <!-- ==================== latest-news-section end ==================== -->
 
         <!-- ==================== contact-me-section start ==================== -->
         <div data-scroll='8' class="contact-me-section sec-p100-bg-bs mb-30 clearfix" id="contact">

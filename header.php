@@ -22,6 +22,11 @@ require_once('functions.php');
         <?php
          if(!isset($_SESSION['user'])){
          ?>
+        <style>
+          header{
+            padding-top: 20px !important;
+          }
+        </style>
         <form method="post" action="functions.php" >
             <div class="row">
                 <div class="col-sm-12">
@@ -76,10 +81,10 @@ require_once('functions.php');
     </div>
       <?php
       if (isset($_SESSION['message']))
-      {        
+      {
         ?>
         <div class="alert alert-warning" role="alert">
-          <span class="alert-message"><?php echo $_SESSION['message'];?></span>    
+          <span class="alert-message"><?php echo $_SESSION['message'];?></span>
         </div>
         <?php
         unset($_SESSION['message']);
