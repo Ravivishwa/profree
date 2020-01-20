@@ -12,6 +12,7 @@ $select = "Select * from user_data where user_id = '$userId'";
 $result = mysqli_query($db, $select);
 $user = mysqli_fetch_assoc($result);
 $experience = unserialize($user['experience']);
+$education = unserialize($user['education']);
 
 ?>
 
@@ -756,85 +757,23 @@ $experience = unserialize($user['experience']);
             <!-- /.Section-title -->
 
             <ul class="accordion collapsible" data-collapsible="accordion">
+              <?php foreach ($education['education'] as $key=>$edu) :?>
                 <li>
-                    <div class="accordion-header acco-clr1 collapsible-header active">
+                    <div class="accordion-header <?php echo "acco-clr1".$key?> collapsible-header active">
                         <span class="icon">
 							<i class="fa fa-pencil" aria-hidden="true"></i>
-						</span>
-                        <p>
-                            <strong>Master Degree of design</strong> - Abc University of Los Angeles , 2015 - 2016
-                        </p>
-                    </div>
-                    <div class="accordion-body collapsible-body">
-                        <span>
-							Successfully passed MBA’ on year 2015 - 2016 scoring CGPA 4.00 out of 4.00. The study fields were Cpmputer Architecture, Calculus, Physics Fundamental of Physics, Chemistry, Integral Mathematics. ABC University of los Angeles.
-						</span>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="accordion-header acco-clr2 collapsible-header active">
-                        <span class="icon">
-							<i class="fa fa-pencil" aria-hidden="true"></i>
-						</span>
-                        <p>
-                            <strong>Bachelor Degree of C.A.</strong> - Vikarm University of Ujjain , 2014 - 2015
-                        </p>
-                    </div>
-                    <div class="accordion-body collapsible-body">
-                        <span>
-							Successfully passed MBA’ on year 2015 - 2016 scoring CGPA 4.00 out of 4.00. The study fields were Cpmputer Architecture, Calculus, Physics Fundamental of Physics, Chemistry, Integral Mathematics. ABC University of los Angeles.
-						</span>
+              </span>
+                          <p>
+                              <strong><?php echo $edu['degree']?></strong> - <?php echo $edu['university']?> , <?php echo $edu['year_conduct']?>
+                          </p>
+                      </div>
+                      <div class="accordion-body collapsible-body">
+                          <span>
+                      <?php echo $edu['ed_desc']?>
+              </span>
                     </div>
                 </li>
-
-                <li>
-                    <div class="accordion-header acco-clr3 collapsible-header active">
-                        <span class="icon">
-							<i class="fa fa-pencil" aria-hidden="true"></i>
-						</span>
-                        <p>
-                            <strong>Diploma in Computer</strong> - RGCSM , 2013 - 2014
-                        </p>
-                    </div>
-                    <div class="accordion-body collapsible-body">
-                        <span>
-							Successfully passed MBA’ on year 2015 - 2016 scoring CGPA 4.00 out of 4.00. The study fields were Cpmputer Architecture, Calculus, Physics Fundamental of Physics, Chemistry, Integral Mathematics. ABC University of los Angeles.
-						</span>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="accordion-header acco-clr4 collapsible-header active">
-                        <span class="icon">
-							<i class="fa fa-pencil" aria-hidden="true"></i>
-						</span>
-                        <p>
-                            <strong>Higher Secondry Education</strong> - M.p. Board Bhopal , 2012 - 2013
-                        </p>
-                    </div>
-                    <div class="accordion-body collapsible-body">
-                        <span>
-							Successfully passed MBA’ on year 2015 - 2016 scoring CGPA 4.00 out of 4.00. The study fields were Cpmputer Architecture, Calculus, Physics Fundamental of Physics, Chemistry, Integral Mathematics. ABC University of los Angeles.
-						</span>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="accordion-header acco-clr5 collapsible-header active">
-                        <span class="icon">
-							<i class="fa fa-pencil" aria-hidden="true"></i>
-						</span>
-                        <p>
-                            <strong>High School Degree</strong> - M.p. Board Bhopal , 2011 - 2014
-                        </p>
-                    </div>
-                    <div class="accordion-body collapsible-body">
-                        <span>
-							Successfully passed MBA’ on year 2015 - 2016 scoring CGPA 4.00 out of 4.00. The study fields were Cpmputer Architecture, Calculus, Physics Fundamental of Physics, Chemistry, Integral Mathematics. ABC University of los Angeles.
-						</span>
-                    </div>
-                </li>
+            <?php endforeach;?>
             </ul>
 
         </div>

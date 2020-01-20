@@ -20,6 +20,9 @@ if(!isLoggedIn()){
         <div class="card">
             <div class="card-body">
               <form action="functions.php" method="POST" enctype="multipart/form-data">
+                <div class="alert alert-danger d-none myalert" role="alert">
+                  Please fill all required details
+                </div>
                 <div id="pd">
                   <h2 class="text-center my-4 " >Personal Details</h2>
                     <div class="container">
@@ -99,7 +102,7 @@ if(!isLoggedIn()){
                         <div class="form-group col-md-2">
                           <div><button  name="add-more" class="btn btn-primary add-more">Add More</button></div>
                         </div>
-                       </div>                    
+                       </div>
                   </div>
 
                   <div class="d-none" id="edu">
@@ -128,10 +131,10 @@ if(!isLoggedIn()){
                         <div class="form-group col-md-2">
                           <div><button  name="add-more" class="btn btn-primary add-more">Add More</button></div>
                         </div>
-                      </div>                    
+                      </div>
                   </div>
 
-                  <div class="d-none" id="exp">                    
+                  <div class="d-none" id="exp">
                     <h2 class="text-center my-4" >Experience</h2>
                     <div class="exp-main-parent">
                       <div class="exp-repeat-me">
@@ -163,46 +166,46 @@ if(!isLoggedIn()){
                       </div>
                     </div>
                   </div>
-                  
+
                     <div class="d-none" id="woym">
                       <h2 class="text-center my-4" >What's on your mind</h2>
                       <div class="form-group">
                           <textarea class="form-control" id="whats_on_mind" rows="3" name="whats_on_mind"></textarea>
-                      </div>                      
+                      </div>
                     </div>
 
                      <div class="d-none" id="portfolio">
                       <h2 class="text-center my-4" >Portfolio Upload</h2>
-                      <div class="form-check-inline">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" id="radio1" name="image" value="Image" checked>Image
-                        </label>
-                      </div>
-                      <div class="form-check-inline">
-                        <label class="form-check-label" >
-                          <input type="radio" class="form-check-input" id="radio2" name="article" value="Article">Article
-                        </label>
-                      </div>
-                       <div class="form-check-inline">
-                        <label class="form-check-label" >
-                          <input type="radio" class="form-check-input" id="radio3" name="code" value="Code">Code
-                        </label>
-                      </div>
-                       <div class="form-check-inline">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" id="radio4" name="video" value="Video">Video
-                        </label>
-                      </div>
-                       <div class="form-check-inline">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" id="radio5" name="audio" value="Audio">Audio
-                        </label>
-                      </div>
-                       <div class="form-check-inline">
-                        <label class="form-check-label">
-                          <input type="radio" class="form-check-input" id="radio6" name="others" value="Others">Others 
-                        </label>
-                      </div>
+<!--                      <div class="form-check-inline">-->
+<!--                        <label class="form-check-label">-->
+<!--                          <input type="radio" class="form-check-input" id="radio1" name="image" value="Image" checked>Image-->
+<!--                        </label>-->
+<!--                      </div>-->
+<!--                      <div class="form-check-inline">-->
+<!--                        <label class="form-check-label" >-->
+<!--                          <input type="radio" class="form-check-input" id="radio2" name="article" value="Article">Article-->
+<!--                        </label>-->
+<!--                      </div>-->
+<!--                       <div class="form-check-inline">-->
+<!--                        <label class="form-check-label" >-->
+<!--                          <input type="radio" class="form-check-input" id="radio3" name="code" value="Code">Code-->
+<!--                        </label>-->
+<!--                      </div>-->
+<!--                       <div class="form-check-inline">-->
+<!--                        <label class="form-check-label">-->
+<!--                          <input type="radio" class="form-check-input" id="radio4" name="video" value="Video">Video-->
+<!--                        </label>-->
+<!--                      </div>-->
+<!--                       <div class="form-check-inline">-->
+<!--                        <label class="form-check-label">-->
+<!--                          <input type="radio" class="form-check-input" id="radio5" name="audio" value="Audio">Audio-->
+<!--                        </label>-->
+<!--                      </div>-->
+<!--                       <div class="form-check-inline">-->
+<!--                        <label class="form-check-label">-->
+<!--                          <input type="radio" class="form-check-input" id="radio6" name="others" value="Others">Others-->
+<!--                        </label>-->
+<!--                      </div>-->
                       <div class="form-group">
                            <label id="content-description">Title:</label>
                              <input class="form-control input-lg" id="inputlg" name="title"  type="text">
@@ -214,15 +217,14 @@ if(!isLoggedIn()){
                         <div class="form-group">
                            <label id="upload-input">Upload file:</label>
                             <input type="file" class="btn btn-outline-dark btn-lg btn-block" name="port">
-                        </div>                    
-                    </div>                 
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="col-sm-12 text-center">
                             <div class="btn btn-primary btn-lg back"><i class="fas fa-arrow-circle-left"></i></div>
                             <div class="btn btn-primary btn-lg forward"><i class="fas fa-arrow-circle-right"></i></div>
-                            <button class="btn btn-primary btn-md d-none po-submit" name="po-submit" type="submit">Submit
-                            </button>
+                            <button class="btn btn-primary btn-md d-none po-submit" name="po-submit">Submit</button>
                          </div>
                     </div>
                 </form>
