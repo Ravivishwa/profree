@@ -13,6 +13,8 @@ if(!is_dir($targetDir))
   mkdir($targetDir, 0777, true);
 }
 
+
+
 if(!empty($_FILES["file"]["name"])){
   $fileName = basename($_FILES["file"]["name"]);
   $targetFilePath = $targetDir ."/". $fileName;

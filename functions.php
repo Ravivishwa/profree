@@ -1,6 +1,5 @@
 <?php
 session_start();
-// var_dump($_FILES);die();
 require_once "phpmailer/class.phpmailer.php";
 
 
@@ -17,7 +16,7 @@ $errors   = array();
 if (isset($_POST['register_btn'])) {
   register();
 }
-if (isset($_POST['po-submit'])) { 
+if (isset($_POST['po-submit'])) {
   submitDetails();
 }
 
@@ -40,6 +39,9 @@ function submitDetails(){
   $phone = $_POST['phone'];
   $zipCode = $_POST['zipcode'];
   $website = $_POST['website'];
+  if(!empty($_FILES)){
+    uploadPortfolio($_FILES);
+  }
 
   $exp = $edu = $ps = [];
   $experience = $skills = $education = '';
@@ -58,9 +60,9 @@ function submitDetails(){
     for($i=0;$i<count($_POST['skill']);$i++){
       $ps['skills'][$i]['skill'] =  $_POST['skill'][$i];
       $ps['skills'][$i]['rate'] =  $_POST['rate'][$i];
-    }     
+    }
     $skills = serialize($ps);
-  } 
+  }
 
   if(isset($_POST['degree'])){
     for($i=0;$i<count($_POST['degree']);$i++){
@@ -68,8 +70,8 @@ function submitDetails(){
     $edu['education'][$i]['university'] =  $_POST['university'][$i];
     $edu['education'][$i]['year_conduct'] =  $_POST['year_conduct'][$i];
     $edu['education'][$i]['ed_desc'] =  $_POST['ed_desc'][$i];
-    }  
-    $education = serialize($edu);   
+    }
+    $education = serialize($edu);
   }
 
   $insert = "INSERT INTO user_data
@@ -253,5 +255,58 @@ function sendOtp($email,$id){
   }
       header('location: otp.php');
 
+}
+
+function uploadPortfolio($file){
+  global $db,$userId;
+  $targetDir = "uploads/".$userId ;
+  $title = $_POST['title'];
+  $description = $_POST['description'];
+
+  if(!is_dir($targetDir))
+  {
+    mkdir($targetDir, 0777, true);
+  }
+  $file = $_FILES["port"];
+  if(!empty($file["name"])){
+    $fileName = basename($file["name"]);
+    $targetFilePath = $targetDir ."/". $fileName;
+    $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
+    // Allow certain file formats
+    $allowTypes = array('jpg','png','jpeg','gif','pdf');
+    if(in_array($fileType, $allowTypes)){
+      if(move_uploaded_file($file["tmp_name"], $targetFilePath)){
+        $insert = "INSERT INTO `portfolio` (`id`, `user_id`, `title`, `description`, `image`) VALUES (NULL, '$userId', '$title', '$description', '$fileName');";
+        mysqli_query($db, $insert);
+        if($insert){
+          $statusMsg = [
+            'success' =>true,
+            'msg' =>  "The file ".$fileName. " has been uploaded successfully.",
+          ];
+
+        }else{
+          $statusMsg = [
+            'success' =>false,
+            'msg' =>  "File upload failed, please try again."
+          ];
+        }
+      }else{
+        $statusMsg = [
+          'success' =>false,
+          'msg' =>  "Sorry, there was an error uploading your file."
+        ];
+      }
+    }else{
+      $statusMsg = [
+        'success' =>false,
+        'msg' =>  "Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload."
+      ];
+    }
+  }else{
+    $statusMsg = [
+      'success' =>false,
+      'msg' =>  "Please select a file to upload."
+    ];
+  }
 }
 ?>
