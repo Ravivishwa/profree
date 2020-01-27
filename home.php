@@ -176,8 +176,36 @@ if(!isLoggedIn()){
 
                      <div class="d-none" id="portfolio">
                       <h2 class="text-center my-4" >Portfolio Upload</h2>
-<!--
--->
+<!--                      <div class="form-check-inline">-->
+<!--                        <label class="form-check-label">-->
+<!--                          <input type="radio" class="form-check-input" id="radio1" name="image" value="Image" checked>Image-->
+<!--                        </label>-->
+<!--                      </div>-->
+<!--                      <div class="form-check-inline">-->
+<!--                        <label class="form-check-label" >-->
+<!--                          <input type="radio" class="form-check-input" id="radio2" name="article" value="Article">Article-->
+<!--                        </label>-->
+<!--                      </div>-->
+<!--                       <div class="form-check-inline">-->
+<!--                        <label class="form-check-label" >-->
+<!--                          <input type="radio" class="form-check-input" id="radio3" name="code" value="Code">Code-->
+<!--                        </label>-->
+<!--                      </div>-->
+<!--                       <div class="form-check-inline">-->
+<!--                        <label class="form-check-label">-->
+<!--                          <input type="radio" class="form-check-input" id="radio4" name="video" value="Video">Video-->
+<!--                        </label>-->
+<!--                      </div>-->
+<!--                       <div class="form-check-inline">-->
+<!--                        <label class="form-check-label">-->
+<!--                          <input type="radio" class="form-check-input" id="radio5" name="audio" value="Audio">Audio-->
+<!--                        </label>-->
+<!--                      </div>-->
+<!--                       <div class="form-check-inline">-->
+<!--                        <label class="form-check-label">-->
+<!--                          <input type="radio" class="form-check-input" id="radio6" name="others" value="Others">Others-->
+<!--                        </label>-->
+<!--                      </div>-->
                       <div class="form-group">
                            <label id="content-description">Title:</label>
                              <input class="form-control input-lg" id="inputlg" name="title"  type="text">
